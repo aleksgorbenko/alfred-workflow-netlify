@@ -84,7 +84,7 @@ def deploy_item(deploy: dict) -> dict:
     emoji = STATE_EMOJI.get(state, "🟡" if state in ACTIVE_STATES else "⚪")
     subtitle = f"{emoji} {state}"
     if state == "error" and deploy.get("error_message"):
-        subtitle += f" — {deploy['error_message']}"
+        subtitle += f" - {deploy['error_message']}"
 
     context = deploy.get("context", "")
     branch = deploy.get("branch", "")
@@ -111,8 +111,84 @@ def deploy_item(deploy: dict) -> dict:
         title=title,
         subtitle=subtitle,
         arg=build_page_url,
+        variables={
+            "DEPLOY_SSL_URL": deploy.get("deploy_ssl_url", ""),
+            "BUILD_PAGE_URL": build_page_url,
+            "STATE": state,
+            "ERROR_MESSAGE": deploy.get("error_message") or "",
+            "BRANCH": branch,
+            "CONTEXT": context,
+            "COMMIT_REF": deploy.get("commit_ref", ""),
+            "COMMIT_URL": deploy.get("commit_url", ""),
+            "COMMIT_MESSAGE": deploy.get("title") or deploy.get("commit_message") or "",
+            "COMMITTER": deploy.get("committer", ""),
+            "FRAMEWORK": deploy.get("framework", ""),
+            "DEPLOY_TIME": str(deploy.get("deploy_time", "")),
+            "PUBLISHED_AT": deploy.get("published_at", ""),
+        },
         mods=mods,
     )
+
+
+def deploy_detail_item(
+    label: str, subtitle: str, value: str, *, action: str = "copy"
+) -> dict:
+    return item(
+        title=label,
+        subtitle=subtitle or "(not set)",
+        arg=value,
+        variables={"DETAIL_ACTION": action},
+    )
+
+
+def deploy_detail_items(fields: dict[str, str]) -> list[dict]:
+    state = fields.get("STATE", "")
+    error_message = fields.get("ERROR_MESSAGE", "")
+    state_text = f"{state} - {error_message}" if error_message else state
+
+    branch = fields.get("BRANCH", "")
+    context = fields.get("CONTEXT", "")
+    branch_text = f"{branch} ({context})" if context else branch
+
+    commit_message = fields.get("COMMIT_MESSAGE", "")
+    commit_url = fields.get("COMMIT_URL", "")
+
+    deploy_time = fields.get("DEPLOY_TIME", "")
+    deploy_time_text = f"{deploy_time}s" if deploy_time else ""
+
+    published_at = fields.get("PUBLISHED_AT", "")
+    published_text = _relative_time(published_at) if published_at else ""
+
+    rows = [
+        (
+            "Open in browser",
+            fields.get("DEPLOY_SSL_URL", ""),
+            fields.get("DEPLOY_SSL_URL", ""),
+            "open",
+        ),
+        (
+            "Build log",
+            fields.get("BUILD_PAGE_URL", ""),
+            fields.get("BUILD_PAGE_URL", ""),
+            "open",
+        ),
+        (
+            "Commit",
+            commit_message,
+            commit_url if commit_url else fields.get("COMMIT_REF", ""),
+            "open" if commit_url else "copy",
+        ),
+        ("Branch", branch_text, branch_text, "copy"),
+        ("State", state_text, state_text, "copy"),
+        ("Committer", fields.get("COMMITTER", ""), fields.get("COMMITTER", ""), "copy"),
+        ("Framework", fields.get("FRAMEWORK", ""), fields.get("FRAMEWORK", ""), "copy"),
+        ("Deploy time", deploy_time_text, deploy_time_text, "copy"),
+        ("Published", published_text, published_at, "copy"),
+    ]
+    return [
+        deploy_detail_item(label, subtitle, value, action=action)
+        for label, subtitle, value, action in rows
+    ]
 
 
 def envvar_item(env_var: dict) -> dict:

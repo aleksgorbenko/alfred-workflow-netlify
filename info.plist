@@ -89,7 +89,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000009</string>
+				<string>A1000000-0000-0000-0000-000000000017</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -292,6 +292,57 @@
 				<false/>
 			</dict>
 		</array>
+		<key>A1000000-0000-0000-0000-000000000017</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A1000000-0000-0000-0000-000000000018</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A1000000-0000-0000-0000-000000000018</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A1000000-0000-0000-0000-000000000019</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A1000000-0000-0000-0000-000000000019</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A1000000-0000-0000-0000-00000000000A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>A1000000-0000-0000-0000-00000000001A</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A1000000-0000-0000-0000-00000000000C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Aleks Gorbenko</string>
@@ -337,7 +388,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>nf — live search your Netlify sites</string>
+				<string>nf - live search your Netlify sites</string>
 				<key>title</key>
 				<string>Search Netlify Sites</string>
 				<key>type</key>
@@ -548,27 +599,6 @@
 			<string>A1000000-0000-0000-0000-000000000008</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
-				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000009</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -872,6 +902,104 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>A1000000-0000-0000-0000-000000000017</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string></string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Fields for the selected build</string>
+				<key>script</key>
+				<string>python3 src/nfapi/deploy_detail.py</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Fields for the selected build</string>
+				<key>title</key>
+				<string>Build Detail</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A1000000-0000-0000-0000-000000000018</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:DETAIL_ACTION}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>open</string>
+						<key>outputlabel</key>
+						<string>open</string>
+						<key>uid</key>
+						<string>A1000000-0000-0000-0000-00000000001A</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>copy</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>A1000000-0000-0000-0000-000000000019</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -880,7 +1008,7 @@
 		<key>A1000000-0000-0000-0000-000000000001</key>
 		<dict>
 			<key>note</key>
-			<string>nf — live search Netlify sites. Enter opens the site menu (Builds/Env Vars/Settings), Shift jumps straight to env vars, Cmd opens site settings, Alt opens the live site, Ctrl triggers a new deploy.</string>
+			<string>nf - live search Netlify sites. Enter opens the site menu (Builds/Env Vars/Settings), Shift jumps straight to env vars, Cmd opens site settings, Alt opens the live site, Ctrl triggers a new deploy.</string>
 			<key>xpos</key>
 			<integer>40</integer>
 			<key>ypos</key>
@@ -907,7 +1035,7 @@
 		<key>A1000000-0000-0000-0000-000000000004</key>
 		<dict>
 			<key>note</key>
-			<string>No keyword, chained only. Lists builds for SITE_ID (GET /sites/{id}/deploys). Enter opens the build page, Cmd opens the deploy preview, Ctrl cancels if still active.</string>
+			<string>No keyword, chained only. Lists builds for SITE_ID (GET /sites/{id}/deploys). Enter opens the build detail rows, Cmd opens the deploy preview directly, Ctrl cancels if still active.</string>
 			<key>xpos</key>
 			<integer>1500</integer>
 			<key>ypos</key>
@@ -925,7 +1053,7 @@
 		<key>A1000000-0000-0000-0000-000000000006</key>
 		<dict>
 			<key>note</key>
-			<string>Cmd+Enter on a site, or Cmd+Enter on a Settings row — opens the Netlify dashboard page.</string>
+			<string>Cmd+Enter on a site, or Cmd+Enter on a Settings row - opens the Netlify dashboard page.</string>
 			<key>xpos</key>
 			<integer>380</integer>
 			<key>ypos</key>
@@ -934,7 +1062,7 @@
 		<key>A1000000-0000-0000-0000-000000000007</key>
 		<dict>
 			<key>note</key>
-			<string>Alt+Enter on a site — opens the live site URL.</string>
+			<string>Alt+Enter on a site - opens the live site URL.</string>
 			<key>xpos</key>
 			<integer>380</integer>
 			<key>ypos</key>
@@ -943,25 +1071,16 @@
 		<key>A1000000-0000-0000-0000-000000000008</key>
 		<dict>
 			<key>note</key>
-			<string>Ctrl+Enter on a site — POSTs a new build, prints a status line.</string>
+			<string>Ctrl+Enter on a site - POSTs a new build, prints a status line.</string>
 			<key>xpos</key>
 			<integer>380</integer>
 			<key>ypos</key>
 			<integer>800</integer>
 		</dict>
-		<key>A1000000-0000-0000-0000-000000000009</key>
-		<dict>
-			<key>note</key>
-			<string>Enter on a build — opens its Netlify build/log page.</string>
-			<key>xpos</key>
-			<integer>1780</integer>
-			<key>ypos</key>
-			<integer>-160</integer>
-		</dict>
 		<key>A1000000-0000-0000-0000-00000000000A</key>
 		<dict>
 			<key>note</key>
-			<string>Cmd+Enter on a build — opens that deploy's preview URL.</string>
+			<string>Cmd+Enter on a build, or the Build Detail 'open' rows (preview/build log) - opens that URL.</string>
 			<key>xpos</key>
 			<integer>1780</integer>
 			<key>ypos</key>
@@ -970,7 +1089,7 @@
 		<key>A1000000-0000-0000-0000-00000000000B</key>
 		<dict>
 			<key>note</key>
-			<string>Ctrl+Enter on an active build — POSTs cancel, prints a status line.</string>
+			<string>Ctrl+Enter on an active build - POSTs cancel, prints a status line.</string>
 			<key>xpos</key>
 			<integer>1780</integer>
 			<key>ypos</key>
@@ -988,7 +1107,7 @@
 		<key>A1000000-0000-0000-0000-00000000000D</key>
 		<dict>
 			<key>note</key>
-			<string>Cmd+Enter on an env var — copies the value only.</string>
+			<string>Cmd+Enter on an env var - copies the value only.</string>
 			<key>xpos</key>
 			<integer>1780</integer>
 			<key>ypos</key>
@@ -1056,6 +1175,33 @@
 			<integer>1500</integer>
 			<key>ypos</key>
 			<integer>160</integer>
+		</dict>
+		<key>A1000000-0000-0000-0000-000000000017</key>
+		<dict>
+			<key>note</key>
+			<string>Clear query before Build Detail (build row's arg carried the build page url).</string>
+			<key>xpos</key>
+			<integer>1780</integer>
+			<key>ypos</key>
+			<integer>-240</integer>
+		</dict>
+		<key>A1000000-0000-0000-0000-000000000018</key>
+		<dict>
+			<key>note</key>
+			<string>No keyword, chained only, static (fields came in via variables on the build row, no API call). Rows: open in browser, build log, commit, branch, state, committer, framework, deploy time, published.</string>
+			<key>xpos</key>
+			<integer>2060</integer>
+			<key>ypos</key>
+			<integer>-240</integer>
+		</dict>
+		<key>A1000000-0000-0000-0000-000000000019</key>
+		<dict>
+			<key>note</key>
+			<string>Routes by DETAIL_ACTION: open -&gt; reuses the deploy-preview Open URL node, else (copy) -&gt; reuses the env var Copy to Clipboard node.</string>
+			<key>xpos</key>
+			<integer>2340</integer>
+			<key>ypos</key>
+			<integer>-240</integer>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>

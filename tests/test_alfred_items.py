@@ -1,4 +1,6 @@
 from alfred_items import (
+    deploy_detail_item,
+    deploy_detail_items,
     deploy_item,
     envvar_item,
     error_item,
@@ -85,7 +87,7 @@ def test_deploy_item_error_state_includes_message():
         "error_message": "Build script returned non-zero exit code",
     }
     result = deploy_item(deploy)
-    assert result["subtitle"] == "🔴 error — Build script returned non-zero exit code"
+    assert result["subtitle"] == "🔴 error - Build script returned non-zero exit code"
 
 
 def test_deploy_item_builds_distinct_url_per_deploy_from_shared_site_admin_url():
@@ -161,3 +163,69 @@ def test_settings_item_shows_value_and_opens_admin_url_on_cmd():
 def test_settings_item_shows_not_set_for_empty_value():
     result = settings_item("Plan", "", "https://app.netlify.com/projects/gbko")
     assert result["subtitle"] == "(not set)"
+
+
+def test_deploy_item_carries_detail_fields_as_variables():
+    deploy = {
+        "id": "d1",
+        "state": "ready",
+        "branch": "master",
+        "context": "production",
+        "admin_url": "https://app.netlify.com/projects/gbko",
+        "deploy_ssl_url": "https://d1--gbko.netlify.app",
+        "commit_ref": "abc1234",
+        "commit_url": "https://github.com/aleksgorbenko/gbko/commit/abc1234",
+        "title": "Fix homepage typo",
+        "committer": "aleksgorbenko",
+        "framework": "hugo",
+        "deploy_time": 19,
+        "published_at": "2026-09-08T12:20:15.526Z",
+    }
+    result = deploy_item(deploy)
+    assert result["variables"]["COMMIT_MESSAGE"] == "Fix homepage typo"
+    assert result["variables"]["COMMITTER"] == "aleksgorbenko"
+    assert result["variables"]["FRAMEWORK"] == "hugo"
+    assert result["variables"]["DEPLOY_TIME"] == "19"
+    assert result["variables"]["DEPLOY_SSL_URL"] == "https://d1--gbko.netlify.app"
+
+
+def test_deploy_detail_item_marks_action_via_variable():
+    result = deploy_detail_item(
+        "Open in browser", "https://x", "https://x", action="open"
+    )
+    assert result["variables"] == {"DETAIL_ACTION": "open"}
+    assert result["arg"] == "https://x"
+
+
+def test_deploy_detail_items_first_row_opens_in_browser():
+    fields = {"DEPLOY_SSL_URL": "https://preview.example"}
+    items = deploy_detail_items(fields)
+    assert items[0]["title"] == "Open in browser"
+    assert items[0]["arg"] == "https://preview.example"
+    assert items[0]["variables"]["DETAIL_ACTION"] == "open"
+
+
+def test_deploy_detail_items_state_row_appends_error_message():
+    fields = {"STATE": "error", "ERROR_MESSAGE": "build failed"}
+    items = deploy_detail_items(fields)
+    state_row = next(i for i in items if i["title"] == "State")
+    assert state_row["subtitle"] == "error - build failed"
+
+
+def test_deploy_detail_items_commit_row_opens_when_url_present():
+    fields = {
+        "COMMIT_MESSAGE": "Fix typo",
+        "COMMIT_URL": "https://github.com/x/y/commit/1",
+    }
+    items = deploy_detail_items(fields)
+    commit_row = next(i for i in items if i["title"] == "Commit")
+    assert commit_row["variables"]["DETAIL_ACTION"] == "open"
+    assert commit_row["arg"] == "https://github.com/x/y/commit/1"
+
+
+def test_deploy_detail_items_commit_row_falls_back_to_copy_without_url():
+    fields = {"COMMIT_MESSAGE": "Fix typo", "COMMIT_REF": "abc123"}
+    items = deploy_detail_items(fields)
+    commit_row = next(i for i in items if i["title"] == "Commit")
+    assert commit_row["variables"]["DETAIL_ACTION"] == "copy"
+    assert commit_row["arg"] == "abc123"

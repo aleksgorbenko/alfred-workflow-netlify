@@ -10,10 +10,10 @@ from cache import cached
 API_BASE = "https://api.netlify.com/api/v1"
 USER_AGENT = "AlfredNetlifyWorkflow/1.0 +https://github.com/aleksgorbenko/alfred-workflow-netlify"
 
-SITES_TTL = 60
-SITE_TTL = 30
-DEPLOYS_TTL = 15
-ENV_VARS_TTL = 30
+SITES_TTL = 300
+SITE_TTL = 300
+DEPLOYS_TTL = 45
+ENV_VARS_TTL = 300
 
 _LINK_NEXT = re.compile(r'<([^>]+)>;\s*rel="next"')
 
