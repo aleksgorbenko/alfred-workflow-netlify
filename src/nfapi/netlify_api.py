@@ -4,6 +4,7 @@ import re
 import urllib.error
 import urllib.parse
 import urllib.request
+from dataclasses import dataclass
 from typing import Any
 
 from cache import cached
@@ -105,3 +106,26 @@ def get_env_vars(account_id: str, site_id: str, token: str) -> list[dict[str, An
     query = urllib.parse.urlencode({"site_id": site_id})
     url = f"{API_BASE}/accounts/{account_id}/env?{query}"
     return cached(url, ENV_VARS_TTL, lambda: _get(url, token))
+
+
+@dataclass(frozen=True)
+class NetlifyClient:
+    token: str
+
+    def sites(self) -> list[dict[str, Any]]:
+        return list_sites(self.token)
+
+    def site(self, site_id: str) -> dict[str, Any]:
+        return get_site(site_id, self.token)
+
+    def deploys(self, site_id: str) -> list[dict[str, Any]]:
+        return list_site_deploys(site_id, self.token)
+
+    def env_vars(self, account_id: str, site_id: str) -> list[dict[str, Any]]:
+        return get_env_vars(account_id, site_id, self.token)
+
+    def trigger_deploy(self, site_id: str) -> None:
+        create_site_build(site_id, self.token)
+
+    def cancel_build(self, deploy_id: str) -> None:
+        cancel_site_deploy(deploy_id, self.token)

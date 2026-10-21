@@ -23,7 +23,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000010</string>
+				<string>A1000000-0000-0000-0000-000000000008</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -33,31 +33,21 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000003</string>
-				<key>modifiers</key>
-				<integer>131072</integer>
-				<key>modifiersubtext</key>
-				<string>View environment variables</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000006</string>
+				<string>A1000000-0000-0000-0000-000000000008</string>
 				<key>modifiers</key>
 				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string>Open site settings</string>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000007</string>
+				<string>A1000000-0000-0000-0000-000000000008</string>
 				<key>modifiers</key>
 				<integer>524288</integer>
 				<key>modifiersubtext</key>
-				<string>Open live site</string>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -67,89 +57,7 @@
 				<key>modifiers</key>
 				<integer>262144</integer>
 				<key>modifiersubtext</key>
-				<string>Trigger new deploy</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000002</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000004</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
 				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000003</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000005</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000004</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000017</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000A</string>
-				<key>modifiers</key>
-				<integer>1048576</integer>
-				<key>modifiersubtext</key>
-				<string>Open deploy preview</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000B</string>
-				<key>modifiers</key>
-				<integer>262144</integer>
-				<key>modifiersubtext</key>
-				<string>Cancel this build</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000005</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000C</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000D</string>
-				<key>modifiers</key>
-				<integer>1048576</integer>
-				<key>modifiersubtext</key>
-				<string>Copy value only</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -159,195 +67,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>A1000000-0000-0000-0000-00000000000E</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-00000000000B</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000E</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-00000000000C</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000F</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-00000000000D</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000F</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000010</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000011</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000011</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000012</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000012</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000002</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>A1000000-0000-0000-0000-000000000013</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000003</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>A1000000-0000-0000-0000-000000000014</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000015</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000015</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000016</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000016</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000C</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000006</string>
-				<key>modifiers</key>
-				<integer>1048576</integer>
-				<key>modifiersubtext</key>
-				<string>Open settings page</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000017</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000018</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000018</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-000000000019</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>A1000000-0000-0000-0000-000000000019</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000A</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>A1000000-0000-0000-0000-00000000001A</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>A1000000-0000-0000-0000-00000000000C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -406,17 +125,17 @@
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
-				<string>Your Netlify sites</string>
+				<string>Loading from Netlify…</string>
 				<key>script</key>
-				<string>python3 src/nfapi/sites.py "$1"</string>
+				<string>python3 src/nfapi/workflow.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>nf - live search your Netlify sites</string>
+				<string>Sites, builds, environment variables and settings</string>
 				<key>title</key>
-				<string>Search Netlify Sites</string>
+				<string>Browse Netlify</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -432,186 +151,12 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000002</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000003</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string></string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Builds for the selected site</string>
-				<key>script</key>
-				<string>python3 src/nfapi/deploys.py</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Builds for the selected site</string>
-				<key>title</key>
-				<string>Builds</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000004</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string></string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Environment variables for the selected site</string>
-				<key>script</key>
-				<string>python3 src/nfapi/envvars.py</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Environment variables for the selected site</string>
-				<key>title</key>
-				<string>Environment Variables</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000005</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
-				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000006</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
-				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000007</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>python3 src/nfapi/trigger_deploy.py "$1"</string>
+				<string>python3 src/nfapi/workflow.py --perform</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -625,88 +170,6 @@
 			<string>A1000000-0000-0000-0000-000000000008</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
-				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-00000000000A</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>python3 src/nfapi/cancel_build.py "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-00000000000B</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-00000000000C</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-00000000000D</string>
-			<key>version</key>
-			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -726,303 +189,6 @@
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>A1000000-0000-0000-0000-00000000000E</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Copied to clipboard</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-00000000000F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000010</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string></string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Choose what to view for the selected site</string>
-				<key>script</key>
-				<string>python3 src/nfapi/menu.py</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Choose what to view for the selected site</string>
-				<key>title</key>
-				<string>Site Menu</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000011</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string>{var:SITE_ACTION}</string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>builds</string>
-						<key>outputlabel</key>
-						<string>builds</string>
-						<key>uid</key>
-						<string>A1000000-0000-0000-0000-000000000013</string>
-					</dict>
-					<dict>
-						<key>inputstring</key>
-						<string>{var:SITE_ACTION}</string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>envvars</string>
-						<key>outputlabel</key>
-						<string>envvars</string>
-						<key>uid</key>
-						<string>A1000000-0000-0000-0000-000000000014</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>settings</string>
-				<key>hideelse</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000012</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000015</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string></string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Read-only build &amp; domain settings for the selected site</string>
-				<key>script</key>
-				<string>python3 src/nfapi/settings.py</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Read-only build &amp; domain settings for the selected site</string>
-				<key>title</key>
-				<string>Settings</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000016</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000017</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string></string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Fields for the selected build</string>
-				<key>script</key>
-				<string>python3 src/nfapi/deploy_detail.py</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Fields for the selected build</string>
-				<key>title</key>
-				<string>Build Detail</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000018</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string>{var:DETAIL_ACTION}</string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>open</string>
-						<key>outputlabel</key>
-						<string>open</string>
-						<key>uid</key>
-						<string>A1000000-0000-0000-0000-00000000001A</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>copy</string>
-				<key>hideelse</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>A1000000-0000-0000-0000-000000000019</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1132,13 +298,16 @@ Type `nf` to list your Netlify sites with their latest deploy status.
 ## Commands
 
 * `nf &lt;query&gt;` - filter your sites by name or domain.
-* Enter on a site - its builds, newest first, with status and failure reason.
-* Shift+Enter on a site - its environment variables.
-* Cmd+Enter on a site - open its Netlify dashboard.
-* Alt+Enter on a site - open the live site.
-* Ctrl+Enter on a site - trigger a new deploy.
-* Enter on a build - open its log; Cmd+Enter opens its deploy preview; Ctrl+Enter cancels an active build.
+* `nf &lt;site&gt; &gt;` - the site: Builds, Environment variables, Settings, Open live site, Trigger deploy.
+* `nf &lt;site&gt; &gt; builds` - builds, newest first, with status and failure reason; `&gt; &lt;id&gt;` opens a build's detail.
+* `nf &lt;site&gt; &gt; env` - environment variables; `nf &lt;site&gt; &gt; settings` - build and domain settings.
+* Delete the last part of the path to go back; text after it filters the page.
+* First row on every page is the page itself: Enter opens it in Netlify, Tab goes back.
+* Enter on a site, section or build - go into it.
+* Cmd+Enter on a site - open its Netlify dashboard; Alt+Enter opens the live site; Ctrl+Enter triggers a deploy.
+* Cmd+Enter on a build - open its deploy preview; Ctrl+Enter cancels an active build.
 * Enter on an environment variable - copy `KEY=value`; Cmd+Enter copies the value only.
+* Enter on a detail or setting - copy it, or open it when it is a link.
 
 ## Setup
 
@@ -1175,60 +344,6 @@ Type `nf` to list your Netlify sites with their latest deploy status.
 			<key>ypos</key>
 			<integer>40</integer>
 		</dict>
-		<key>A1000000-0000-0000-0000-000000000002</key>
-		<dict>
-			<key>note</key>
-			<string>Clear query before Builds.</string>
-			<key>xpos</key>
-			<integer>1220</integer>
-			<key>ypos</key>
-			<integer>-80</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000003</key>
-		<dict>
-			<key>note</key>
-			<string>Clear query before Environment Variables. Fed by both the menu's envvars branch and the site row's Shift shortcut.</string>
-			<key>xpos</key>
-			<integer>1220</integer>
-			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000004</key>
-		<dict>
-			<key>note</key>
-			<string>No keyword, chained only. Lists builds for SITE_ID (GET /sites/{id}/deploys). Enter opens the build detail rows, Cmd opens the deploy preview directly, Ctrl cancels if still active.</string>
-			<key>xpos</key>
-			<integer>1500</integer>
-			<key>ypos</key>
-			<integer>-80</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000005</key>
-		<dict>
-			<key>note</key>
-			<string>No keyword, chained only. Lists env vars for SITE_ID/ACCOUNT_ID. Enter copies KEY=value, Cmd copies the value only.</string>
-			<key>xpos</key>
-			<integer>1500</integer>
-			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000006</key>
-		<dict>
-			<key>note</key>
-			<string>Cmd+Enter on a site, or Cmd+Enter on a Settings row - opens the Netlify dashboard page.</string>
-			<key>xpos</key>
-			<integer>380</integer>
-			<key>ypos</key>
-			<integer>560</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000007</key>
-		<dict>
-			<key>note</key>
-			<string>Alt+Enter on a site - opens the live site URL.</string>
-			<key>xpos</key>
-			<integer>380</integer>
-			<key>ypos</key>
-			<integer>680</integer>
-		</dict>
 		<key>A1000000-0000-0000-0000-000000000008</key>
 		<dict>
 			<key>note</key>
@@ -1238,42 +353,6 @@ Type `nf` to list your Netlify sites with their latest deploy status.
 			<key>ypos</key>
 			<integer>800</integer>
 		</dict>
-		<key>A1000000-0000-0000-0000-00000000000A</key>
-		<dict>
-			<key>note</key>
-			<string>Cmd+Enter on a build, or the Build Detail 'open' rows (preview/build log) - opens that URL.</string>
-			<key>xpos</key>
-			<integer>1780</integer>
-			<key>ypos</key>
-			<integer>-80</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-00000000000B</key>
-		<dict>
-			<key>note</key>
-			<string>Ctrl+Enter on an active build - POSTs cancel, prints a status line.</string>
-			<key>xpos</key>
-			<integer>1780</integer>
-			<key>ypos</key>
-			<integer>0</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-00000000000C</key>
-		<dict>
-			<key>note</key>
-			<string>Enter on an env var (copies KEY=value) or Enter on a Settings row (copies the value).</string>
-			<key>xpos</key>
-			<integer>1780</integer>
-			<key>ypos</key>
-			<integer>80</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-00000000000D</key>
-		<dict>
-			<key>note</key>
-			<string>Cmd+Enter on an env var - copies the value only.</string>
-			<key>xpos</key>
-			<integer>1780</integer>
-			<key>ypos</key>
-			<integer>160</integer>
-		</dict>
 		<key>A1000000-0000-0000-0000-00000000000E</key>
 		<dict>
 			<key>note</key>
@@ -1282,87 +361,6 @@ Type `nf` to list your Netlify sites with their latest deploy status.
 			<integer>660</integer>
 			<key>ypos</key>
 			<integer>800</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-00000000000F</key>
-		<dict>
-			<key>note</key>
-			<string>Shared notification for clipboard copies.</string>
-			<key>xpos</key>
-			<integer>2060</integer>
-			<key>ypos</key>
-			<integer>120</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000010</key>
-		<dict>
-			<key>note</key>
-			<string>Clear query before the site menu (site row's arg carried the site_id).</string>
-			<key>xpos</key>
-			<integer>380</integer>
-			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000011</key>
-		<dict>
-			<key>note</key>
-			<string>No keyword, chained only, static (no API call). 3 rows: Builds / Environment Variables / Settings, each sets SITE_ACTION.</string>
-			<key>xpos</key>
-			<integer>660</integer>
-			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000012</key>
-		<dict>
-			<key>note</key>
-			<string>Routes by SITE_ACTION: builds/envvars → their branch, else (settings) → Settings.</string>
-			<key>xpos</key>
-			<integer>940</integer>
-			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000015</key>
-		<dict>
-			<key>note</key>
-			<string>Clear query before Settings.</string>
-			<key>xpos</key>
-			<integer>1220</integer>
-			<key>ypos</key>
-			<integer>160</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000016</key>
-		<dict>
-			<key>note</key>
-			<string>No keyword, chained only. Read-only build/domain facts for SITE_ID (GET /sites/{id}). Enter copies the value, Cmd opens the real settings page.</string>
-			<key>xpos</key>
-			<integer>1500</integer>
-			<key>ypos</key>
-			<integer>160</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000017</key>
-		<dict>
-			<key>note</key>
-			<string>Clear query before Build Detail (build row's arg carried the build page url).</string>
-			<key>xpos</key>
-			<integer>1780</integer>
-			<key>ypos</key>
-			<integer>-240</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000018</key>
-		<dict>
-			<key>note</key>
-			<string>No keyword, chained only, static (fields came in via variables on the build row, no API call). Rows: open in browser, build log, commit, branch, state, committer, framework, deploy time, published.</string>
-			<key>xpos</key>
-			<integer>2060</integer>
-			<key>ypos</key>
-			<integer>-240</integer>
-		</dict>
-		<key>A1000000-0000-0000-0000-000000000019</key>
-		<dict>
-			<key>note</key>
-			<string>Routes by DETAIL_ACTION: open -&gt; reuses the deploy-preview Open URL node, else (copy) -&gt; reuses the env var Copy to Clipboard node.</string>
-			<key>xpos</key>
-			<integer>2340</integer>
-			<key>ypos</key>
-			<integer>-240</integer>
 		</dict>
 		<key>A73B6B92-33BE-481E-BD91-4A848126D766</key>
 		<dict>

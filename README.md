@@ -29,20 +29,28 @@ Alfred Workflow to browse [Netlify](https://www.netlify.com) sites via the [Netl
 
 ## Commands
 
-### `nf <query>` - search your Netlify sites
+### `nf <query>` - browse your Netlify sites
 
-Live-filters your sites by name/domain as you type.
+The query is a path; delete its last part to go back. Text after the last part filters the page.
 
-- `Enter` on a site - drill into its builds, most recent first, with 🟢/🔴/🟡 status and the failure reason on errors.
-- `Shift+Enter` on a site - drill into its environment variables.
-- `Cmd+Enter` on a site - open its Netlify dashboard/settings page.
+| Path | Page |
+|---|---|
+| `nf <query>` | Sites, filtered by name or domain |
+| `nf <site> >` | Site: Builds, Environment variables, Settings, Open live site, Trigger deploy |
+| `nf <site> > builds` | Builds, newest first, with 🟢/🔴/🟡 status and the failure reason |
+| `nf <site> > builds > <id>` | Build detail: preview, build log, commit, branch, state, timing |
+| `nf <site> > env` | Environment variables |
+| `nf <site> > settings` | Build and domain settings |
+
+- First row on every page is the page itself: `Enter` opens it in Netlify, `Tab` goes back.
+- `Enter` on a site, section or build - go into it.
+- `Cmd+Enter` on a site - open its Netlify dashboard.
 - `Alt+Enter` on a site - open the live site.
 - `Ctrl+Enter` on a site - trigger a new deploy.
-- `Enter` on a build - open its build/log page.
-- `Cmd+Enter` on a build - open that build's deploy preview.
+- `Cmd+Enter` on a build - open its deploy preview.
 - `Ctrl+Enter` on an active build - cancel it.
-- `Enter` on an env var - copy `KEY=value` to the clipboard.
-- `Cmd+Enter` on an env var - copy just the value.
+- `Enter` on an env var - copy `KEY=value`; `Cmd+Enter` copies the value only.
+- `Enter` on a detail or setting - copy it, or open it when it is a link.
 
 ### Maintenance
 

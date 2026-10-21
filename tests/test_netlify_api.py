@@ -6,6 +6,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from netlify_api import (
     NetlifyAuthError,
+    NetlifyClient,
     NetlifyError,
     cancel_site_deploy,
     create_site_build,
@@ -159,3 +160,27 @@ def test_get_site_is_cached_across_calls(mock_urlopen: MagicMock) -> None:
     get_site("site-123", "token")
     get_site("site-123", "token")
     assert mock_urlopen.call_count == 1
+
+
+def test_client_delegates_with_its_token() -> None:
+    client = NetlifyClient("token")
+    with (
+        patch("netlify_api.list_sites", return_value=[]) as sites,
+        patch("netlify_api.get_site", return_value={}) as site,
+        patch("netlify_api.list_site_deploys", return_value=[]) as deploys,
+        patch("netlify_api.get_env_vars", return_value=[]) as env_vars,
+        patch("netlify_api.create_site_build") as trigger,
+        patch("netlify_api.cancel_site_deploy") as cancel,
+    ):
+        assert client.sites() == []
+        assert client.site("s") == {}
+        assert client.deploys("s") == []
+        assert client.env_vars("a", "s") == []
+        client.trigger_deploy("s")
+        client.cancel_build("d")
+    sites.assert_called_once_with("token")
+    site.assert_called_once_with("s", "token")
+    deploys.assert_called_once_with("s", "token")
+    env_vars.assert_called_once_with("a", "s", "token")
+    trigger.assert_called_once_with("s", "token")
+    cancel.assert_called_once_with("d", "token")
