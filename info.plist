@@ -1002,7 +1002,27 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Browse Netlify sites, deploys and settings from Alfred.
+
+Type `nf` to list your Netlify sites with their latest deploy status.
+
+![Netlify sites in Alfred](images/about/main.png)
+
+## Commands
+
+* `nf &lt;query&gt;` - filter your sites by name or domain.
+* Enter on a site - its builds, newest first, with status and failure reason.
+* Shift+Enter on a site - its environment variables.
+* Cmd+Enter on a site - open its Netlify dashboard.
+* Alt+Enter on a site - open the live site.
+* Ctrl+Enter on a site - trigger a new deploy.
+* Enter on a build - open its log; Cmd+Enter opens its deploy preview; Ctrl+Enter cancels an active build.
+* Enter on an environment variable - copy `KEY=value`; Cmd+Enter copies the value only.
+
+## Setup
+
+* Open Configure Workflow and paste a Netlify personal access token (User Settings &gt; Applications &gt; Personal access tokens).
+</string>
 	<key>uidata</key>
 	<dict>
 		<key>A1000000-0000-0000-0000-000000000001</key>

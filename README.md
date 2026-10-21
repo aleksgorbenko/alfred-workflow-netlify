@@ -1,4 +1,29 @@
-# alfred-workflow-netlify
+<p align="center">
+  <img src="icon.png" width="128" alt="Netlify for Alfred icon">
+</p>
+
+<h1 align="center">Netlify for Alfred</h1>
+
+<p align="center">Browse Netlify sites, deploys and settings from Alfred.</p>
+
+<p align="center">
+  <a href="https://github.com/aleksgorbenko/alfred-workflow-netlify/actions/workflows/ci.yml"><img src="https://github.com/aleksgorbenko/alfred-workflow-netlify/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI status"></a>
+  <a href="https://github.com/aleksgorbenko/alfred-workflow-netlify/releases/latest"><img src="https://img.shields.io/github/v/release/aleksgorbenko/alfred-workflow-netlify?label=release&color=4c8dff" alt="Latest release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue" alt="Licence MIT"></a>
+  <img src="https://img.shields.io/badge/macOS-14%2B-black?logo=apple" alt="macOS 14 or later">
+  <a href="https://www.alfredapp.com/powerpack/"><img src="https://img.shields.io/badge/Alfred-5%20Powerpack-5c1f87" alt="Alfred 5 Powerpack"></a>
+</p>
+
+<p align="center">
+  <a href="#commands">Commands</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#setup">Setup</a> ·
+  <a href="#development">Development</a>
+</p>
+
+Type `nf` to list your Netlify sites with their latest deploy status.
+
+![Netlify sites in Alfred](images/about/main.png)
 
 Alfred Workflow to browse [Netlify](https://www.netlify.com) sites via the [Netlify API](https://docs.netlify.com/api/get-started/).
 
@@ -23,7 +48,7 @@ Live-filters your sites by name/domain as you type.
 
 1. Download the latest `Netlify.alfredworkflow` from [Releases](https://github.com/aleksgorbenko/alfred-workflow-netlify/releases).
 2. Double-click it - Alfred will prompt to import.
-3. Requires [Alfred](https://www.alfredapp.com) with a Powerpack license.
+3. Requires [Alfred](https://www.alfredapp.com) with a Powerpack licence.
 
 ## Setup
 
@@ -37,6 +62,8 @@ Live-filters your sites by name/domain as you type.
 - `tools/` - dev-only scripts (bundle verification), not shipped.
 
 ```sh
+make setup   # install dev tools and the Python environment
+make ci      # everything CI runs
 make check    # lint + format check + tests
 make build    # package dist/Netlify.alfredworkflow
 make verify   # audit the built bundle for local paths, tokens, junk files
