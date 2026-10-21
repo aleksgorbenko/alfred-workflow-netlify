@@ -5,7 +5,7 @@ RUN := uv run --no-sync
 JSON_FILES := $(shell git ls-files '*.json')
 export HOMEBREW_NO_AUTO_UPDATE := 1
 
-.PHONY: setup test lint lint-python lint-data lint-md lint-actions format format-check audit check ci clean build verify release sync-plist link-live
+.PHONY: setup test lint lint-shell lint-python lint-data lint-md lint-actions format format-check audit check ci clean build verify release sync-plist link-live
 
 setup:
 	brew bundle --quiet
@@ -14,7 +14,10 @@ setup:
 test:
 	$(RUN) pytest
 
-lint: lint-python lint-data lint-md lint-actions
+lint: lint-shell lint-python lint-data lint-md lint-actions
+
+lint-shell:
+	shellcheck src/maintenance.sh
 
 lint-python:
 	$(RUN) ruff check .
@@ -55,6 +58,10 @@ build: check
 	cp src/nfapi/*.py $(BUILD)/src/nfapi/
 	mkdir -p $(BUILD)/images
 	cp -R images/about $(BUILD)/images/
+	mkdir -p $(BUILD)/src
+	cp src/maintenance.sh $(BUILD)/src/
+	mkdir -p $(BUILD)/icons
+	cp icons/*.png $(BUILD)/icons/
 	cd $(BUILD) && zip -r -q ../$(NAME) .
 	rm -rf $(BUILD)
 	@echo "built $(DIST)/$(NAME)"
@@ -85,6 +92,7 @@ sync-plist:
 link-live:
 	@test -n "$(WORKFLOW_DIR)" || (echo "usage: make link-live WORKFLOW_DIR=/path/to/bundle" && exit 1)
 	ln -sfn "$(CURDIR)/images" "$(WORKFLOW_DIR)/images"
+	ln -sfn "$(CURDIR)/icons" "$(WORKFLOW_DIR)/icons"
 	ln -sfn "$(CURDIR)/src" "$(WORKFLOW_DIR)/src"
 	ln -sfn "$(CURDIR)/icon.png" "$(WORKFLOW_DIR)/icon.png"
 	@echo "linked $(WORKFLOW_DIR) to this repo"

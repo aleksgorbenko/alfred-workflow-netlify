@@ -44,6 +44,10 @@ Live-filters your sites by name/domain as you type.
 - `Enter` on an env var - copy `KEY=value` to the clipboard.
 - `Cmd+Enter` on an env var - copy just the value.
 
+### Maintenance
+
+- `:nf` - cache size (Enter reveals the folder) and Empty Cache.
+
 ## Install
 
 1. Download the latest `Netlify.alfredworkflow` from [Releases](https://github.com/aleksgorbenko/alfred-workflow-netlify/releases).
