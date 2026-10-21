@@ -1,10 +1,14 @@
 import json
+from typing import TYPE_CHECKING
 from unittest.mock import patch
 
 from deploy_detail import main
 
+if TYPE_CHECKING:
+    import pytest
 
-def _fields(**overrides):
+
+def _fields(**overrides: str) -> dict[str, str]:
     base = {
         "DEPLOY_SSL_URL": "https://d1--gbko.netlify.app",
         "BUILD_PAGE_URL": "https://app.netlify.com/projects/gbko/deploys/d1",
@@ -25,7 +29,7 @@ def _fields(**overrides):
 
 
 @patch.dict("os.environ", _fields())
-def test_main_first_row_opens_in_browser(capsys):
+def test_main_first_row_opens_in_browser(capsys: pytest.CaptureFixture[str]) -> None:
     main([])
     out = capsys.readouterr().out
     assert out.startswith('{"items": [{"title": "Open in browser"')
@@ -33,7 +37,7 @@ def test_main_first_row_opens_in_browser(capsys):
 
 
 @patch.dict("os.environ", _fields())
-def test_main_includes_commit_and_state(capsys):
+def test_main_includes_commit_and_state(capsys: pytest.CaptureFixture[str]) -> None:
     main([])
     out = capsys.readouterr().out
     assert "Fix homepage typo" in out
@@ -42,7 +46,9 @@ def test_main_includes_commit_and_state(capsys):
 
 
 @patch.dict("os.environ", _fields(STATE="error", ERROR_MESSAGE="build failed"))
-def test_main_state_row_includes_error_message(capsys):
+def test_main_state_row_includes_error_message(
+    capsys: pytest.CaptureFixture[str],
+) -> None:
     main([])
     items = json.loads(capsys.readouterr().out)["items"]
     state_row = next(i for i in items if i["title"] == "State")

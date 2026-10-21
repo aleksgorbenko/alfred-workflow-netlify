@@ -3,14 +3,23 @@ import json
 import os
 import tempfile
 import time
-from collections.abc import Callable
 from pathlib import Path
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
+
+
+PRIVATE_UMASK = 0o077
+PRIVATE_DIRECTORY = 0o700
 
 
 def _cache_dir() -> Path:
-    base = os.environ.get("alfred_workflow_cache", tempfile.gettempdir())  # noqa: SIM112
-    path = Path(base)
-    path.mkdir(parents=True, exist_ok=True)
+    os.umask(PRIVATE_UMASK)
+    base = os.environ.get("alfred_workflow_cache")  # noqa: SIM112
+    path = Path(base) if base else Path(tempfile.gettempdir()) / "alfred-netlify"
+    path.mkdir(mode=PRIVATE_DIRECTORY, parents=True, exist_ok=True)
+    path.chmod(PRIVATE_DIRECTORY)
     return path
 
 

@@ -10,19 +10,19 @@ def main(argv: list[str]) -> None:
     token = os.environ.get("NETLIFY_TOKEN", "")
 
     if not token:
-        print("Set your Netlify token in the workflow configuration")
+        sys.stdout.write("Set your Netlify token in the workflow configuration\n")
         return
     if not deploy_id:
-        print("No build selected")
+        sys.stdout.write("No build selected\n")
         return
 
     try:
         netlify_api.cancel_site_deploy(deploy_id, token)
     except NetlifyError as error:
-        print(f"Failed to cancel build: {error}")
+        sys.stdout.write(f"Failed to cancel build: {error}\n")
         return
 
-    print("Build cancelled")
+    sys.stdout.write("Build cancelled\n")
 
 
 if __name__ == "__main__":

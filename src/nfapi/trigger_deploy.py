@@ -10,19 +10,19 @@ def main(argv: list[str]) -> None:
     token = os.environ.get("NETLIFY_TOKEN", "")
 
     if not token:
-        print("Set your Netlify token in the workflow configuration")
+        sys.stdout.write("Set your Netlify token in the workflow configuration\n")
         return
     if not site_id:
-        print("No site selected")
+        sys.stdout.write("No site selected\n")
         return
 
     try:
         netlify_api.create_site_build(site_id, token)
     except NetlifyError as error:
-        print(f"Failed to trigger deploy: {error}")
+        sys.stdout.write(f"Failed to trigger deploy: {error}\n")
         return
 
-    print("Deploy triggered")
+    sys.stdout.write("Deploy triggered\n")
 
 
 if __name__ == "__main__":

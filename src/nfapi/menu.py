@@ -1,9 +1,10 @@
 import sys
+from typing import Any
 
 from alfred_items import emit, menu_item
 
 
-def build_items() -> list[dict]:
+def build_items() -> list[dict[str, Any]]:
     return [
         menu_item("Builds", "Recent builds with pass/fail status", "builds"),
         menu_item("Environment Variables", "View this site's env vars", "envvars"),

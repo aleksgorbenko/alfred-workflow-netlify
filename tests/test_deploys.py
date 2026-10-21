@@ -1,16 +1,20 @@
-from unittest.mock import patch
+from typing import TYPE_CHECKING
+from unittest.mock import MagicMock, patch
 
 from deploys import build_items, main
 from netlify_api import NetlifyError
 
+if TYPE_CHECKING:
+    import pytest
 
-def test_build_items_empty_list_shows_message():
+
+def test_build_items_empty_list_shows_message() -> None:
     items = build_items([])
     assert len(items) == 1
     assert items[0]["valid"] is False
 
 
-def test_build_items_orders_most_recent_first():
+def test_build_items_orders_most_recent_first() -> None:
     deploys = [
         {
             "id": "old",
@@ -29,7 +33,7 @@ def test_build_items_orders_most_recent_first():
     assert [i["arg"] for i in items] == ["new-url/deploys/new", "old-url/deploys/old"]
 
 
-def test_main_errors_when_token_missing(capsys):
+def test_main_errors_when_token_missing(capsys: pytest.CaptureFixture[str]) -> None:
     with patch.dict("os.environ", {}, clear=True):
         main([])
     out = capsys.readouterr().out
@@ -37,7 +41,7 @@ def test_main_errors_when_token_missing(capsys):
 
 
 @patch.dict("os.environ", {"NETLIFY_TOKEN": "token"}, clear=True)
-def test_main_errors_when_no_site_selected(capsys):
+def test_main_errors_when_no_site_selected(capsys: pytest.CaptureFixture[str]) -> None:
     main([])
     out = capsys.readouterr().out
     assert "no site selected" in out.lower()
@@ -45,8 +49,11 @@ def test_main_errors_when_no_site_selected(capsys):
 
 @patch.dict("os.environ", {"NETLIFY_TOKEN": "token", "SITE_ID": "site-1"})
 @patch("deploys.netlify_api.list_site_deploys", side_effect=NetlifyError("boom"))
-def test_main_surfaces_netlify_error(_mock_list, capsys):
+def test_main_surfaces_netlify_error(
+    mock_list: MagicMock, capsys: pytest.CaptureFixture[str]
+) -> None:
     main([])
+    mock_list.assert_called_once()
     out = capsys.readouterr().out
     assert "boom" in out
 
@@ -56,7 +63,10 @@ def test_main_surfaces_netlify_error(_mock_list, capsys):
     "deploys.netlify_api.list_site_deploys",
     return_value=[{"id": "d1", "state": "ready"}],
 )
-def test_main_emits_deploy_items(_mock_list, capsys):
+def test_main_emits_deploy_items(
+    mock_list: MagicMock, capsys: pytest.CaptureFixture[str]
+) -> None:
     main([])
+    mock_list.assert_called_once()
     out = capsys.readouterr().out
     assert "ready" in out

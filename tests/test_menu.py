@@ -1,7 +1,7 @@
 from menu import build_items
 
 
-def test_build_items_returns_three_fixed_rows():
+def test_build_items_returns_three_fixed_rows() -> None:
     items = build_items()
     assert [i["title"] for i in items] == [
         "Builds",
@@ -10,7 +10,7 @@ def test_build_items_returns_three_fixed_rows():
     ]
 
 
-def test_build_items_sets_site_action_variable_per_row():
+def test_build_items_sets_site_action_variable_per_row() -> None:
     items = build_items()
     assert [i["variables"]["SITE_ACTION"] for i in items] == [
         "builds",
@@ -19,5 +19,5 @@ def test_build_items_sets_site_action_variable_per_row():
     ]
 
 
-def test_build_items_all_valid():
+def test_build_items_all_valid() -> None:
     assert all(i["valid"] for i in build_items())

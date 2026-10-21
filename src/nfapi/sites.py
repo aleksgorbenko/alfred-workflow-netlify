@@ -1,17 +1,18 @@
 import os
 import sys
+from typing import Any
 
 import netlify_api
 from alfred_items import emit, error_item, site_item
 from netlify_api import NetlifyError
 
 
-def _matches(site: dict, query: str) -> bool:
+def _matches(site: dict[str, Any], query: str) -> bool:
     haystack = f"{site.get('name', '')} {site.get('custom_domain', '')}".lower()
     return query.lower() in haystack
 
 
-def build_items(sites: list[dict], query: str) -> list[dict]:
+def build_items(sites: list[dict[str, Any]], query: str) -> list[dict[str, Any]]:
     matches = [site for site in sites if _matches(site, query)] if query else sites
     if not matches:
         return [

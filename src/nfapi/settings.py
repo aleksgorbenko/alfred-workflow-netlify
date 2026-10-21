@@ -1,13 +1,14 @@
 import os
 import sys
+from typing import Any
 
 import netlify_api
 from alfred_items import emit, error_item, settings_item
 from netlify_api import NetlifyError
 
 
-def _repo_summary(site: dict) -> str:
-    repo = site.get("repo") or {}
+def _repo_summary(site: dict[str, Any]) -> str:
+    repo: dict[str, Any] = site.get("repo") or {}
     repo_path = repo.get("repo_path", "")
     branch = repo.get("repo_branch", "")
     if not repo_path:
@@ -15,10 +16,10 @@ def _repo_summary(site: dict) -> str:
     return f"{repo_path} @ {branch}" if branch else repo_path
 
 
-def build_items(site: dict) -> list[dict]:
+def build_items(site: dict[str, Any]) -> list[dict[str, Any]]:
     admin_url = site.get("admin_url", "")
-    build_settings = site.get("build_settings") or {}
-    repo = site.get("repo") or {}
+    build_settings: dict[str, Any] = site.get("build_settings") or {}
+    repo: dict[str, Any] = site.get("repo") or {}
 
     rows = [
         ("Build command", build_settings.get("cmd") or repo.get("cmd", "")),

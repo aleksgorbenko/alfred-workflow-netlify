@@ -1,12 +1,13 @@
 import os
 import sys
+from typing import Any
 
 import netlify_api
 from alfred_items import deploy_item, emit, error_item
 from netlify_api import NetlifyError
 
 
-def build_items(deploys: list[dict]) -> list[dict]:
+def build_items(deploys: list[dict[str, Any]]) -> list[dict[str, Any]]:
     if not deploys:
         return [error_item("No builds found for this site")]
     ordered = sorted(

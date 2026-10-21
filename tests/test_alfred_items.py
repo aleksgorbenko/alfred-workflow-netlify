@@ -1,3 +1,5 @@
+from datetime import UTC, datetime, timedelta
+
 from alfred_items import (
     deploy_detail_item,
     deploy_detail_items,
@@ -11,21 +13,21 @@ from alfred_items import (
 )
 
 
-def test_item_omits_icon_by_default():
+def test_item_omits_icon_by_default() -> None:
     assert "icon" not in item(title="Title")
 
 
-def test_item_omits_mods_by_default():
+def test_item_omits_mods_by_default() -> None:
     assert "mods" not in item(title="Title")
 
 
-def test_error_item_is_invalid():
+def test_error_item_is_invalid() -> None:
     result = error_item("Something went wrong")
     assert result["valid"] is False
     assert result["title"] == "Something went wrong"
 
 
-def test_site_item_ready_state_shows_green():
+def test_site_item_ready_state_shows_green() -> None:
     site = {
         "id": "site-1",
         "name": "my-site",
@@ -42,7 +44,7 @@ def test_site_item_ready_state_shows_green():
     assert result["mods"]["alt"]["arg"] == "https://my-site.netlify.app"
 
 
-def test_site_item_error_state_shows_red():
+def test_site_item_error_state_shows_red() -> None:
     site = {
         "id": "site-1",
         "name": "my-site",
@@ -52,19 +54,19 @@ def test_site_item_error_state_shows_red():
     assert result["subtitle"].startswith("🔴")
 
 
-def test_site_item_no_published_deploy_shows_yellow():
+def test_site_item_no_published_deploy_shows_yellow() -> None:
     site = {"id": "site-1", "name": "my-site"}
     result = site_item(site)
     assert result["subtitle"].startswith("🟡")
 
 
-def test_site_item_prefers_custom_domain_as_title():
+def test_site_item_prefers_custom_domain_as_title() -> None:
     site = {"id": "site-1", "name": "my-site", "custom_domain": "example.com"}
     result = site_item(site)
     assert result["title"] == "example.com"
 
 
-def test_deploy_item_ready_state():
+def test_deploy_item_ready_state() -> None:
     deploy = {
         "id": "d1",
         "state": "ready",
@@ -80,7 +82,7 @@ def test_deploy_item_ready_state():
     assert "ctrl" not in result["mods"]
 
 
-def test_deploy_item_error_state_includes_message():
+def test_deploy_item_error_state_includes_message() -> None:
     deploy = {
         "id": "d1",
         "state": "error",
@@ -90,7 +92,9 @@ def test_deploy_item_error_state_includes_message():
     assert result["subtitle"] == "🔴 error - Build script returned non-zero exit code"
 
 
-def test_deploy_item_builds_distinct_url_per_deploy_from_shared_site_admin_url():
+def test_deploy_item_builds_distinct_url_per_deploy_from_shared_site_admin_url() -> (
+    None
+):
     # real Netlify API returns the SAME admin_url (site dashboard) on every
     # deploy in a site's deploy list - the per-deploy page is admin_url + /deploys/{id}
     shared_admin_url = "https://app.netlify.com/projects/gbko"
@@ -105,16 +109,14 @@ def test_deploy_item_builds_distinct_url_per_deploy_from_shared_site_admin_url()
     assert older["arg"] != newer["arg"]
 
 
-def test_deploy_item_active_state_has_cancel_mod():
+def test_deploy_item_active_state_has_cancel_mod() -> None:
     deploy = {"id": "d1", "state": "building"}
     result = deploy_item(deploy)
     assert result["subtitle"].startswith("🟡")
     assert result["mods"]["ctrl"]["arg"] == "d1"
 
 
-def test_deploy_item_title_includes_relative_time():
-    from datetime import UTC, datetime, timedelta
-
+def test_deploy_item_title_includes_relative_time() -> None:
     ten_minutes_ago = (
         (datetime.now(UTC) - timedelta(minutes=10)).isoformat().replace("+00:00", "Z")
     )
@@ -128,7 +130,7 @@ def test_deploy_item_title_includes_relative_time():
     assert "10m ago" in result["title"]
 
 
-def test_envvar_item_shows_value_and_scopes():
+def test_envvar_item_shows_value_and_scopes() -> None:
     env_var = {
         "key": "API_KEY",
         "scopes": ["builds", "functions"],
@@ -141,31 +143,31 @@ def test_envvar_item_shows_value_and_scopes():
     assert result["mods"]["cmd"]["arg"] == "abc123"
 
 
-def test_envvar_item_masks_secret_values():
+def test_envvar_item_masks_secret_values() -> None:
     env_var = {"key": "SECRET", "is_secret": True, "values": [{"value": ""}]}
     result = envvar_item(env_var)
     assert "not readable" in result["subtitle"]
 
 
-def test_menu_item_sets_site_action_variable():
+def test_menu_item_sets_site_action_variable() -> None:
     result = menu_item("Builds", "Recent builds", "builds")
     assert result["title"] == "Builds"
     assert result["arg"] == "builds"
     assert result["variables"] == {"SITE_ACTION": "builds"}
 
 
-def test_settings_item_shows_value_and_opens_admin_url_on_cmd():
+def test_settings_item_shows_value_and_opens_admin_url_on_cmd() -> None:
     result = settings_item("Plan", "pro", "https://app.netlify.com/projects/gbko")
     assert result["subtitle"] == "pro"
     assert result["mods"]["cmd"]["arg"] == "https://app.netlify.com/projects/gbko"
 
 
-def test_settings_item_shows_not_set_for_empty_value():
+def test_settings_item_shows_not_set_for_empty_value() -> None:
     result = settings_item("Plan", "", "https://app.netlify.com/projects/gbko")
     assert result["subtitle"] == "(not set)"
 
 
-def test_deploy_item_carries_detail_fields_as_variables():
+def test_deploy_item_carries_detail_fields_as_variables() -> None:
     deploy = {
         "id": "d1",
         "state": "ready",
@@ -189,7 +191,7 @@ def test_deploy_item_carries_detail_fields_as_variables():
     assert result["variables"]["DEPLOY_SSL_URL"] == "https://d1--gbko.netlify.app"
 
 
-def test_deploy_detail_item_marks_action_via_variable():
+def test_deploy_detail_item_marks_action_via_variable() -> None:
     result = deploy_detail_item(
         "Open in browser", "https://x", "https://x", action="open"
     )
@@ -197,7 +199,7 @@ def test_deploy_detail_item_marks_action_via_variable():
     assert result["arg"] == "https://x"
 
 
-def test_deploy_detail_items_first_row_opens_in_browser():
+def test_deploy_detail_items_first_row_opens_in_browser() -> None:
     fields = {"DEPLOY_SSL_URL": "https://preview.example"}
     items = deploy_detail_items(fields)
     assert items[0]["title"] == "Open in browser"
@@ -205,14 +207,14 @@ def test_deploy_detail_items_first_row_opens_in_browser():
     assert items[0]["variables"]["DETAIL_ACTION"] == "open"
 
 
-def test_deploy_detail_items_state_row_appends_error_message():
+def test_deploy_detail_items_state_row_appends_error_message() -> None:
     fields = {"STATE": "error", "ERROR_MESSAGE": "build failed"}
     items = deploy_detail_items(fields)
     state_row = next(i for i in items if i["title"] == "State")
     assert state_row["subtitle"] == "error - build failed"
 
 
-def test_deploy_detail_items_commit_row_opens_when_url_present():
+def test_deploy_detail_items_commit_row_opens_when_url_present() -> None:
     fields = {
         "COMMIT_MESSAGE": "Fix typo",
         "COMMIT_URL": "https://github.com/x/y/commit/1",
@@ -223,7 +225,7 @@ def test_deploy_detail_items_commit_row_opens_when_url_present():
     assert commit_row["arg"] == "https://github.com/x/y/commit/1"
 
 
-def test_deploy_detail_items_commit_row_falls_back_to_copy_without_url():
+def test_deploy_detail_items_commit_row_falls_back_to_copy_without_url() -> None:
     fields = {"COMMIT_MESSAGE": "Fix typo", "COMMIT_REF": "abc123"}
     items = deploy_detail_items(fields)
     commit_row = next(i for i in items if i["title"] == "Commit")

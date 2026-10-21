@@ -1,12 +1,13 @@
 import os
 import sys
+from typing import Any
 
 import netlify_api
 from alfred_items import emit, envvar_item, error_item
 from netlify_api import NetlifyError
 
 
-def build_items(env_vars: list[dict]) -> list[dict]:
+def build_items(env_vars: list[dict[str, Any]]) -> list[dict[str, Any]]:
     if not env_vars:
         return [error_item("No environment variables set for this site")]
     ordered = sorted(env_vars, key=lambda env_var: env_var.get("key", ""))
