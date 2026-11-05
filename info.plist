@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>dev.aleksgorbenko.alfred.netlify</string>
+	<key>category</key>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>4E200590-4290-4E04-9FD6-4328ACFAC15B</key>
@@ -37,7 +39,7 @@
 				<key>modifiers</key>
 				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Trigger deploy</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -47,7 +49,7 @@
 				<key>modifiers</key>
 				<integer>524288</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Open in browser</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -57,7 +59,17 @@
 				<key>modifiers</key>
 				<integer>262144</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Cancel build</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A1000000-0000-0000-0000-000000000008</string>
+				<key>modifiers</key>
+				<integer>786432</integer>
+				<key>modifiersubtext</key>
+				<string>Open live site</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -96,7 +108,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Netlify</string>
+	<string>.Netlify</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -151,6 +163,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>{const:alfred_workflow_name}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>A1000000-0000-0000-0000-00000000000E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -188,9 +221,32 @@
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>A1000000-0000-0000-0000-00000000000E</string>
+			<string>7DED5081-6845-4C14-B3FD-12ECDFB03EAE</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>exec /bin/bash src/maintenance.sh "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A73B6B92-33BE-481E-BD91-4A848126D766</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -243,79 +299,35 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>exec /bin/bash src/maintenance.sh "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>A73B6B92-33BE-481E-BD91-4A848126D766</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>{const:alfred_workflow_name}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>7DED5081-6845-4C14-B3FD-12ECDFB03EAE</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 	</array>
 	<key>readme</key>
-	<string>Browse Netlify sites, deploys and settings from Alfred.
+	<string>## Usage
+
+Browse Netlify sites, deploys and settings via the `nf` keyword.
 
 Type `nf` to list your Netlify sites with their latest deploy status.
 
 ![Netlify sites in Alfred](images/about/main.png)
-
-## Commands
 
 * `nf &lt;query&gt;` - filter your sites by name or domain.
 * `nf &lt;site&gt; &gt;` - the site: Builds, Environment variables, Settings, Open live site, Trigger deploy.
 * `nf &lt;site&gt; &gt; builds` - builds, newest first, with status and failure reason; `&gt; &lt;id&gt;` opens a build's detail.
 * `nf &lt;site&gt; &gt; env` - environment variables; `nf &lt;site&gt; &gt; settings` - build and domain settings.
 * Delete the last part of the path to go back; text after it filters the page.
-* First row on every page is the page itself: Enter opens it in Netlify, Tab goes back.
-* Enter on a site, section or build - go into it.
-* Cmd+Enter on a site - open its Netlify dashboard; Alt+Enter opens the live site; Ctrl+Enter triggers a deploy.
-* Cmd+Enter on a build - open its deploy preview; Ctrl+Enter cancels an active build.
-* Enter on an environment variable - copy `KEY=value`; Cmd+Enter copies the value only.
-* Enter on a detail or setting - copy it, or open it when it is a link.
+* First row on every page is the page itself: &lt;kbd&gt;↩&lt;/kbd&gt; opens it in Netlify, &lt;kbd&gt;⇥&lt;/kbd&gt; goes back.
+* &lt;kbd&gt;↩&lt;/kbd&gt; on a site, section or build - go into it.
+* &lt;kbd&gt;⌘&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; on a site - trigger a new deploy; &lt;kbd&gt;⌥&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; opens its Netlify dashboard; &lt;kbd&gt;⌃&lt;/kbd&gt;&lt;kbd&gt;⌥&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; opens the live site.
+* &lt;kbd&gt;⌥&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; on a build - open its deploy preview; &lt;kbd&gt;⌃&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; cancels an active build.
+* &lt;kbd&gt;↩&lt;/kbd&gt; on an environment variable - copy `KEY=value`; &lt;kbd&gt;⌘&lt;/kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt; copies the value only.
+* &lt;kbd&gt;↩&lt;/kbd&gt; on a detail or setting - copy it, or open it when it is a link.
 
-## Setup
+### Maintenance
 
-* Open Configure Workflow and paste a Netlify personal access token (User Settings &gt; Applications &gt; Personal access tokens).
+* `:nf` - cache size (&lt;kbd&gt;↩&lt;/kbd&gt; reveals the folder) and Empty Cache.
 
-## Maintenance
+## Workflow Configuration
 
-* `:nf` - cache size (Enter reveals the folder) and Empty Cache.
+Set the Netlify personal access token in the [Workflow's Configuration](https://www.alfredapp.com/help/workflows/user-configuration/).
 </string>
 	<key>uidata</key>
 	<dict>

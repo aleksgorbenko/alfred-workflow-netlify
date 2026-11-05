@@ -42,19 +42,19 @@ The query is a path; delete its last part to go back. Text after the last part f
 | `nf <site> > env` | Environment variables |
 | `nf <site> > settings` | Build and domain settings |
 
-- First row on every page is the page itself: `Enter` opens it in Netlify, `Tab` goes back.
-- `Enter` on a site, section or build - go into it.
-- `Cmd+Enter` on a site - open its Netlify dashboard.
-- `Alt+Enter` on a site - open the live site.
-- `Ctrl+Enter` on a site - trigger a new deploy.
-- `Cmd+Enter` on a build - open its deploy preview.
-- `Ctrl+Enter` on an active build - cancel it.
-- `Enter` on an env var - copy `KEY=value`; `Cmd+Enter` copies the value only.
-- `Enter` on a detail or setting - copy it, or open it when it is a link.
+- First row on every page is the page itself: `↩` opens it in Netlify, `⇥` goes back.
+- `↩` on a site, section or build - go into it.
+- `⌘↩` on a site - trigger a new deploy.
+- `⌥↩` on a site - open its Netlify dashboard.
+- `⌃⌥↩` on a site - open the live site.
+- `⌥↩` on a build - open its deploy preview.
+- `⌃↩` on an active build - cancel it.
+- `↩` on an env var - copy `KEY=value`; `⌘C` copies the value only.
+- `↩` on a detail or setting - copy it, or open it when it is a link.
 
 ### Maintenance
 
-- `:nf` - cache size (Enter reveals the folder) and Empty Cache.
+- `:nf` - cache size (`↩` reveals the folder) and Empty Cache.
 
 ## Install
 

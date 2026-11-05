@@ -66,7 +66,7 @@ def _header(row: Row, back: str, url: str, hint: str) -> Row:
     return row | {
         "valid": bool(url),
         "autocomplete": back,
-        "subtitle": joined(row["subtitle"], hint),
+        "subtitle": f"{row['subtitle']} · ↩ {hint}",
         "variables": action(OPEN, url),
     }
 
@@ -78,9 +78,9 @@ def _site_row(site: dict[str, Any]) -> Row:
         valid=False,
         autocomplete=drill("", site["name"]),
         mods={
-            "cmd": mod("Open dashboard", OPEN, site.get("admin_url", "")),
-            "alt": mod("Open live site", OPEN, live_url(site)),
-            "ctrl": mod("Trigger new deploy", TRIGGER, site["id"]),
+            "cmd": mod("Trigger new deploy", TRIGGER, site["id"]),
+            "alt": mod("Open dashboard", OPEN, site.get("admin_url", "")),
+            "alt+ctrl": mod("Open live site", OPEN, live_url(site)),
         },
     )
 
@@ -145,7 +145,7 @@ def _build_page_url(site: dict[str, Any], deploy: dict[str, Any]) -> str:
 
 def _deploy_row(deploy: dict[str, Any], path: str) -> Row:
     mods = {
-        "cmd": mod("Open deploy preview", OPEN, deploy.get("deploy_ssl_url", "")),
+        "alt": mod("Open deploy preview", OPEN, deploy.get("deploy_ssl_url", "")),
     }
     if is_active(deploy):
         mods["ctrl"] = mod("Cancel this build", CANCEL, deploy["id"])
@@ -253,7 +253,7 @@ def _env_row(env_var: dict[str, Any]) -> Row:
         key,
         subtitle=joined("(secret, not readable)" if secret else value, scopes),
         variables=action(COPY, f"{key}={value}"),
-        mods={"cmd": mod("Copy value only", COPY, value)},
+        text={"copy": value, "largetype": value} if value else None,
     )
 
 

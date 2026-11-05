@@ -1,0 +1,2 @@
+# name symbol background; rendered by make icons
+maintenance_clear trash.fill #FF453A

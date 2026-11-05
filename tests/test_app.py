@@ -118,14 +118,15 @@ def test_sites_are_sorted_and_drill_into_site() -> None:
 
 def test_site_mods_open_and_trigger() -> None:
     mods = rows("example")[0]["mods"]
-    assert mods["cmd"]["variables"] == {"action": "open", "target": ADMIN}
-    assert mods["alt"]["variables"]["target"] == "https://example-site.netlify.app"
-    assert mods["ctrl"]["variables"] == {"action": "trigger_deploy", "target": "site-1"}
+    assert mods["alt"]["variables"] == {"action": "open", "target": ADMIN}
+    live = "https://example-site.netlify.app"
+    assert mods["alt+ctrl"]["variables"]["target"] == live
+    assert mods["cmd"]["variables"] == {"action": "trigger_deploy", "target": "site-1"}
 
 
 def test_site_without_live_url_disables_mod() -> None:
     mods = rows("another")[0]["mods"]
-    assert mods["alt"]["valid"] is False
+    assert mods["alt+ctrl"]["valid"] is False
 
 
 def test_sites_filter_without_match() -> None:
@@ -161,7 +162,7 @@ def test_site_page_has_header_and_sections() -> None:
     assert header["valid"] is True
     assert header["autocomplete"] == ""
     assert header["variables"] == {"action": "open", "target": ADMIN}
-    assert header["subtitle"] == "🟢 example-site・Open dashboard"
+    assert header["subtitle"] == "🟢 example-site · ↩ Open dashboard"
     assert items[1]["autocomplete"] == "example-site > builds "
 
 
@@ -231,7 +232,11 @@ def test_env_vars_sorted_and_secret_hidden() -> None:
         "target": "API_URL=https://api.test",
     }
     assert items[2]["subtitle"] == "(secret, not readable)・all"
-    assert items[2]["mods"]["cmd"]["valid"] is False
+    assert "text" not in items[2]
+    assert items[1]["text"] == {
+        "copy": "https://api.test",
+        "largetype": "https://api.test",
+    }
 
 
 def test_env_vars_empty_filter() -> None:

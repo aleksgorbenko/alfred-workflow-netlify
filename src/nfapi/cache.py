@@ -14,7 +14,7 @@ PRIVATE_UMASK = 0o077
 PRIVATE_DIRECTORY = 0o700
 
 
-def _cache_dir() -> Path:
+def cache_dir() -> Path:
     os.umask(PRIVATE_UMASK)
     base = os.environ.get("alfred_workflow_cache")  # noqa: SIM112
     path = Path(base) if base else Path(tempfile.gettempdir()) / "alfred-netlify"
@@ -25,7 +25,7 @@ def _cache_dir() -> Path:
 
 def _cache_path(key: str) -> Path:
     digest = hashlib.sha256(key.encode()).hexdigest()
-    return _cache_dir() / f"{digest}.json"
+    return cache_dir() / f"{digest}.json"
 
 
 def cached[T](key: str, ttl_seconds: int, fetch: Callable[[], T]) -> T:

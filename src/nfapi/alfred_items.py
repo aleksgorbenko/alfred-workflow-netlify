@@ -26,6 +26,7 @@ def item(  # noqa: PLR0913
     autocomplete: str | None = None,
     variables: dict[str, str] | None = None,
     mods: dict[str, dict[str, Any]] | None = None,
+    text: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     result: dict[str, Any] = {"title": title, "subtitle": subtitle, "valid": valid}
     if autocomplete is not None:
@@ -34,6 +35,8 @@ def item(  # noqa: PLR0913
         result["variables"] = variables
     if mods is not None:
         result["mods"] = mods
+    if text is not None:
+        result["text"] = text
     return result
 
 
